@@ -36,9 +36,10 @@ jobs:
         path: build/dist/*
 
   upload:
-    if: "github.ref == 'refs/heads/stable' && startsWith(github.event.head_commit.message, '[create release] ')"
+    if: "github.ref == 'refs/heads/develop' && startsWith(github.event.head_commit.message, '[create release] ')"
 
     runs-on: ubuntu-latest
+    permissions: write-all
   
     needs: build
     
